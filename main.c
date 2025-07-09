@@ -61,7 +61,7 @@ char *read_cmd() {
 			if (buflen == 1 || buf[buflen - 2] != '\\') {
 				return ptr;
 			}
-			ptr[ptrlen+buflen-2] = '\0';
+			ptr[ptrlen+buflen-1] = '\0';
 			buflen -= 2;
 			print_prompt2();
 		}
