@@ -50,7 +50,7 @@ char peek_char(struct source_s *src) { // typical use is to detect whitespaces f
 	return src->buffer[pos];
 }
 
-void skip_white_spaces(struct source_s *src) { // removes the white spaces from tokens
+void skip_white_spaces(struct source_s *src) { // removes the white spaces from the string we recieved
 	char c;
 	if (!src || !src->buffer) {
 		return;
