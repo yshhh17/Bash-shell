@@ -4,7 +4,7 @@
 struct token_s {  // structure of a single token
 	struct source_s *src;  // the string returned by scanner and it's details
 	int text_len; // length of the token
-	char *text // the token(string)
+	char *text; // the token(string)
 };
 
 extern struct token_s eof_token; // token returned when error encountered reading token

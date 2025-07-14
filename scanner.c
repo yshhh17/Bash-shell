@@ -12,7 +12,7 @@ int tok_bufindex = -1;
 
 struct token_s eof_token = { // token to return after hitting EOF or any errors
 	.text_len = 0
-}
+};
 
 void add_to_buf(char c) {
 	tok_buf[tok_bufindex] = c;
@@ -30,7 +30,7 @@ void add_to_buf(char c) {
 	}
 }
 
-struct token_s create_token(tok_buf) {
+struct token_s *create_token(char *str) {
 	struct token_s *tok = malloc(sizeof(struct token_s));
 
 	if (!tok) {

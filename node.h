@@ -1,5 +1,5 @@
-#ifndef NODE_H;
-#define NODE_H;
+#ifndef NODE_H
+#define NODE_H
 
 enum node_type_e {
 	NODE_COMMAND,
@@ -24,7 +24,7 @@ union symval_u {
 	unsigned long long ullong;
 	double sfloat;
 	long double ldouble;
-	char char;
+	char chr;
 	char *str;
 };
 
@@ -35,7 +35,7 @@ struct node_s {
 	int children;
 	struct node_s *first_child;
 	struct node_s *next_sibling, *prev_sibling;
-}
+};
 
 struct node_s *new_node(enum node_type_e type);
 void add_child_node(struct node_s *parent, struct node_s *child);

@@ -24,7 +24,7 @@ struct node_s *parse_simple_command(struct token_s *tok) {
 			break;
 		}
 
-		struct node_s *word = new_node(NODE_VAL);
+		struct node_s *word = new_node(NODE_VAR);
 		if(!word) {
 			free_node_tree(cmd);
 			free_token(tok);

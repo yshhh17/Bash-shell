@@ -15,6 +15,6 @@ struct source_s {
 char next_char(struct source_s *src);
 char peek_char(struct source_s *src);
 void unget_char(struct source_s *src);
-void skip_white_spaces(struct source_S *src);
+void skip_white_spaces(struct source_s *src);
 
 #endif

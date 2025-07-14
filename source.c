@@ -25,8 +25,8 @@ char next_char(struct source_s *src) { // returns the next character of the toke
 	} else {
 		c1 = src->buffer[src->curpos];
 	}
-	if(++src->curpos >= src->buffsize) {
-		src->curpos = src->buffsize;
+	if(++src->curpos >= src->bufsize) {
+		src->curpos = src->bufsize;
 		return EOF;
 	} 
 	return src->buffer[src->curpos];
@@ -40,7 +40,7 @@ char peek_char(struct source_s *src) { // typical use is to detect whitespaces f
 	long pos = src->curpos;
 
 	if (pos == INIT_SRC_POS) {
-		pos++
+		pos++;
 	}
 	pos++;
 
@@ -50,7 +50,7 @@ char peek_char(struct source_s *src) { // typical use is to detect whitespaces f
 	return src->buffer[pos];
 }
 
-void skip_white_spaces(struct source_s *src) { // removes the white spaces from the string we recieved
+void skip_white_spaces(struct source_s *src) { // removes the white spaces from the string we received
 	char c;
 	if (!src || !src->buffer) {
 		return;
