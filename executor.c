@@ -10,8 +10,21 @@
 #include "executor.h"
 
 int do_exec_cmd(int argc, char **argv) {
+	printf("running command: \n");
+	for (int i = 0; argv[i]; i++) {
+		printf(" argv[%d] = '%s'\n", i, argv[i]);
+	}
+
 	execvp(argv[0], argv);
-	return 0;
+	
+	perror("error: failed to execute command");
+	if (errno == ENOEXEC) {
+		exit(126);
+	} else if (errno == ENOENT) {
+		exit(127);
+	} else {
+		exit(EXIT_FAILURE);
+	}
 }
 
 static inline void free_argv(int argc, char **argv) {
@@ -41,6 +54,11 @@ int do_simple_command(struct node_s *node) {
 
 	while(child) {
 		str = child->val.str;
+		if (!str) {
+			fprintf(stderr, "Null string in command node\n");
+			free_argv(argc, argv);
+			return 0;
+		}
 		argv[argc] = malloc(strlen(str)+1);
 
 		if(!argv[argc]) {

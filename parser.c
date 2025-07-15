@@ -31,7 +31,7 @@ struct node_s *parse_simple_command(struct token_s *tok) {
 			return NULL;
 		}
 
-		set_node_val_str(cmd, tok->text);
+		set_node_val_str(word, tok->text);
 		add_child_node(cmd, word);
 
 		free_token(tok); //from the tokenize() function of the scanner file
