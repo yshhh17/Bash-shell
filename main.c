@@ -62,7 +62,7 @@ char *read_cmd() {
 			return NULL;
 		}
 
-		strcpy(ptr+ptrlen, buf);
+		strcpy( ptr+ptrlen, buf);
 
 		if (buf[buflen-1] == '\n') {
 			if (buflen == 1 || buf[buflen - 2] != '\\') {
@@ -78,7 +78,7 @@ char *read_cmd() {
 }
 
 int parse_and_execute(struct source_s *src) {
-	skip_white_spaces(src);
+	skip_white_spaces (src);
 
 	struct token_s *tok = tokenize(src);
 
